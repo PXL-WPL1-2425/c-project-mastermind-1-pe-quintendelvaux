@@ -18,6 +18,7 @@ namespace mastermindPE1
     /// </summary>
     public partial class MainWindow : Window
     {
+
         int attempts = 0;
         DateTime startTime;
         DispatcherTimer timer = new DispatcherTimer();
