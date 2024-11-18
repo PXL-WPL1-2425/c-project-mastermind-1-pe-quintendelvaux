@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Reflection;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace mastermindPE1
 {
@@ -16,10 +18,13 @@ namespace mastermindPE1
     /// </summary>
     public partial class MainWindow : Window
     {
+        int attempts = 0;
+        DateTime startTime;
+        DispatcherTimer timer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
-
+          
             //"Red", "Yellow", "Orange", "White", "Green", "Blue"
             Random randomColor = new Random();
             int colorNumber;
@@ -191,11 +196,8 @@ namespace mastermindPE1
             }
 
             Title = $"{color01}, {color02}, {color03} and {color04}";
-
+            
         }
-
-
-
 
 
         private void colorComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -225,5 +227,28 @@ namespace mastermindPE1
 
             }
         }
+       
+        private void startcountdown(object sender, RoutedEventArgs e)
+        {
+            timer.Interval = TimeSpan.FromMilliseconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+            startTime = DateTime.Now;
+        }
+
+    private void Timer_Tick(object? sender, EventArgs e)
+    {
+        TimeSpan interval = DateTime.Now.Subtract(startTime);
+        timerTextBox.Text = interval.ToString("ss\\:fff");
+    }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            attempts += 1;
+            Title = $"Poging {attempts.ToString()}";
+
+            startcountdown(sender, e);
+        }
+       
     }
 }

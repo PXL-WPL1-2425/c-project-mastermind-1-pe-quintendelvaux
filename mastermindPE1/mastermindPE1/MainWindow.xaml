@@ -39,10 +39,11 @@
             <ComboBoxItem Content="Green"/>
             <ComboBoxItem Content="Blue"/>
         </ComboBox>
-        <Button Content="Valideren" HorizontalAlignment="Left" Height="26" Margin="334,237,0,0" VerticalAlignment="Top" Width="126" />
+        <Button Content="Valideren" HorizontalAlignment="Left" Height="26" Margin="334,237,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click" />
         <Label x:Name="colorLabel1" Content="" HorizontalAlignment="Left" Height="70" Margin="162,147,0,0" VerticalAlignment="Top" Width="70" Background="Gray" BorderBrush="Beige" BorderThickness="5"/>
         <Label x:Name="colorLabel2" Content="" HorizontalAlignment="Left" Height="70" Margin="296,147,0,0" VerticalAlignment="Top" Width="70" Background="Gray" BorderBrush="Beige" BorderThickness="5"/>
         <Label x:Name="colorLabel3" Content="" HorizontalAlignment="Left" Height="70" Margin="424,147,0,0" VerticalAlignment="Top" Width="70" Background="Gray" BorderBrush="Beige" BorderThickness="5"/>
         <Label x:Name="colorLabel4" Content="" HorizontalAlignment="Left" Height="70" Margin="558,147,0,0" VerticalAlignment="Top" Width="70" Background="Gray" BorderBrush="Beige" BorderThickness="5"/>
+        <TextBox x:Name="timerTextBox" HorizontalAlignment="Center" Margin="0,285,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
     </Grid>
 </Window>
